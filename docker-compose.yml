@@ -1,0 +1,44 @@
+version: "3.3"
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - ./site:/var/www/html
+      - ./nginx_conf:/etc/nginx/conf.d
+    networks:
+      - apache
+  apache_php7.4:
+    build:
+      ./php7.4
+    volumes:
+      - ./site:/var/www/html
+      - ./apache_conf:/etc/apache2/sites-enabled
+    networks:
+      - apache
+      - mysql
+  apache_php8.0:
+    build:
+      ./php8.0
+    volumes:
+      - ./site:/var/www/html
+      - ./apache_conf:/etc/apache2/sites-enabled
+    networks:
+      - apache
+      - mysql
+  mysql:
+    build:
+      ./mysql
+    volumes:
+      - mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: qwerty
+    networks:
+      - mysql
+volumes:
+  mysql:
+networks:
+  apache:
+  mysql:
