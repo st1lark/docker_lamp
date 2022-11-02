@@ -29,7 +29,7 @@ define( 'DB_USER', 'wordpress' );
 define( 'DB_PASSWORD', 'asfasdga' );
 
 /** Имя сервера базы данных */
-define( 'DB_HOST', 'lamp_mysql_1' );
+define( 'DB_HOST', 'docker_lamp_mysql_1' );
 
 /** Кодировка базы данных для создания таблиц. */
 define( 'DB_CHARSET', 'utf8mb4' );
@@ -78,7 +78,7 @@ $table_prefix = 'wp_';
  *
  * @link https://ru.wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', false );
+define( 'WP_DEBUG', true );
 
 /* Произвольные значения добавляйте между этой строкой и надписью "дальше не редактируем". */
 
